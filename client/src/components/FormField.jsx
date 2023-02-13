@@ -1,4 +1,6 @@
 import React from 'react';
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+
 
 const FormField = ({
   labelName,
@@ -19,6 +21,7 @@ const FormField = ({
         {labelName}
       </label>
       {isSurpriseMe && (
+        <>
         <button
           type="button"
           onClick={handleSurpriseMe}
@@ -26,6 +29,13 @@ const FormField = ({
         >
           Surprise me
         </button>
+        <Link 
+          to="/prompt-examples"
+          className="font-semibold text-xs bg-[#EcECF1] py-1 px-2 rounded-[5px] text-black"
+        >
+          View Prompt Examples
+        </Link>
+        </>
       )}
     </div>
     <input

@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 
 import { logo } from './assets';
-import { Home, CreatePost } from './page';
+import { Home, CreatePost, PromptExamples } from './page';
 
 const App = () => (
   <BrowserRouter>
@@ -10,13 +10,24 @@ const App = () => (
       <Link to="/">
         <img src={logo} alt="logo" className="w-28 object-contain" />
       </Link>
-
-      <Link to="/create-post" className="font-inter font-medium bg-[#C3E4EB] text-[#4E4E50] px-4 py-2 rounded-md">Create My Own Image</Link>
+      <div className="inline-flex text-xs">
+        <Link to="/create-post">
+          <button className="font-inter font-medium bg-[#C3E4EB] text-[#4E4E50] hover:text-[#fff] hover:bg-gray-400 font-bold py-2 px-4 rounded-l">
+            Create Image
+          </button>
+        </Link>
+        <Link to="/prompt-examples">
+          <button className="font-inter font-medium bg-[#C3E4EB] text-[#4E4E50] hover:text-[#fff] hover:bg-gray-400 font-bold py-2 px-4 rounded-r">
+            Prompt Examples
+          </button>
+        </Link>
+      </div>
     </header>
     <main className="sm:p-8 px-4 py-8 w-full bg-[#f9fafe] min-h-[calc(100vh-73px)]">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/create-post" element={<CreatePost />} />
+        <Route path="/prompt-examples" element={<PromptExamples />} />
       </Routes>
     </main>
   </BrowserRouter>
